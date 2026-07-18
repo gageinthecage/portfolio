@@ -144,7 +144,7 @@ export default function ExperienceSection() {
           initial={reduce ? false : "hidden"}
           whileInView="visible"
           viewport={{ amount: 0.3, once: false }}
-          className="mb-12 text-3xl font-medium sm:text-4xl lg:text-5xl"
+          className="font-display mb-12 text-3xl font-medium sm:text-4xl lg:text-5xl"
         >
           {sectionTitles.experience}
         </motion.h2>

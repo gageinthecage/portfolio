@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Preloader from "@/components/Preloader";
-import VantaBackground from "@/components/VantaBackground";
+import VantaBackground from "@/components/backgrounds/AuroraRibbons";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ExperienceSection from "@/components/ExperienceSection";

@@ -45,7 +45,7 @@ export default function Navbar() {
             key={item.href}
             type="button"
             onClick={() => handleClick(item.href)}
-            className="cursor-pointer px-1 py-3 -my-3 text-xs sm:text-sm font-medium text-foreground/90 hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+            className="font-display cursor-pointer px-1 py-3 -my-3 text-xs sm:text-sm font-medium text-foreground/90 hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
           >
             {item.name}
           </button>

@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050505; /* near-black */
-  --foreground: #f5f5f2; /* warm off-white */
-  --muted: #a3a3ab; /* secondary text (gray.400 equiv) */
-  --muted-strong: #cfcfd6; /* gray.300 equiv */
-  --surface: rgba(255, 255, 255, 0.05); /* glass card bg */
-  --surface-hover: rgba(255, 255, 255, 0.09);
-  --hairline: rgba(255, 255, 255, 0.1); /* 1px borders */
-  --hairline-strong: rgba(255, 255, 255, 0.22); /* hover border */
-  --accent: #c8b283; /* muted champagne — use SPARINGLY */
-  --accent-soft: rgba(200, 178, 131, 0.35);
+  /* "Protage" palette — deep green-black with luminous mint-teal */
+  --background: #030d0a; /* green-black */
+  --foreground: #f2f7f5; /* cool off-white */
+  --muted: #8fa8a0; /* secondary text, green-gray */
+  --muted-strong: #c9d9d3;
+  --surface: rgba(148, 245, 216, 0.05); /* teal-tinted glass card bg */
+  --surface-hover: rgba(148, 245, 216, 0.09);
+  --hairline: rgba(180, 240, 220, 0.12); /* 1px borders */
+  --hairline-strong: rgba(120, 240, 210, 0.3); /* hover border */
+  --accent: #35e2c2; /* luminous mint-teal — use SPARINGLY */
+  --accent-soft: rgba(53, 226, 194, 0.32);
 }
 
 @theme inline {
@@ -24,7 +25,8 @@
   --color-hairline-strong: var(--hairline-strong);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-space-grotesk);
   --font-mono: var(--font-geist-mono);
 }
 

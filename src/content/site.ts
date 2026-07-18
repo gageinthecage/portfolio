@@ -75,7 +75,8 @@ export const experience: ExperienceItem[] = [
   {
     title: "Project Engineer Intern",
     company: "Achen-Gardner Construction",
-    logo: "/logos/achen-gardner.webp",
+    logo: "/logos/achen-gardner-color.png",
+    logoLight: true, // blue-on-white brand mark
     location: "Chandler, AZ",
     period: "Summer 2024",
     blurb: "Heavy civil construction project engineering.",

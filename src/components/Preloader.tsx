@@ -97,7 +97,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
         initial={{ scale: 0.98 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
-        className="text-6xl sm:text-7xl font-bold tabular-nums"
+        className="font-display text-6xl sm:text-7xl font-bold tabular-nums"
       >
         {count}%
       </motion.div>

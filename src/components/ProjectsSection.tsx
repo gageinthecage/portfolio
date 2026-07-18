@@ -47,7 +47,7 @@ function useTouchDevice() {
 // Muted duotone gradient + quiet glyph per art key — each distinct but subdued.
 const ART: Record<ProjectItem["art"], { gradient: string; glyph: ReactNode }> = {
   ml: {
-    gradient: "bg-gradient-to-br from-[#141a24] to-[#0a0d12]",
+    gradient: "bg-gradient-to-br from-[#0c2434] to-[#061219]",
     glyph: (
       <svg viewBox="0 0 96 64" className="h-24 w-36" aria-hidden="true">
         <g
@@ -70,7 +70,7 @@ const ART: Record<ProjectItem["art"], { gradient: string; glyph: ReactNode }> = 
     ),
   },
   web: {
-    gradient: "bg-gradient-to-br from-[#1a1420] to-[#0d0a12]",
+    gradient: "bg-gradient-to-br from-[#0a2e26] to-[#051510]",
     glyph: (
       <svg
         viewBox="0 0 96 64"
@@ -94,7 +94,7 @@ const ART: Record<ProjectItem["art"], { gradient: string; glyph: ReactNode }> = 
     ),
   },
   math: {
-    gradient: "bg-gradient-to-br from-[#12190f] to-[#0a0f09]",
+    gradient: "bg-gradient-to-br from-[#12291a] to-[#08130c]",
     glyph: (
       <div className="relative" aria-hidden="true">
         <span className="block text-6xl font-light leading-none text-[color:var(--foreground)] opacity-20">
@@ -105,7 +105,7 @@ const ART: Record<ProjectItem["art"], { gradient: string; glyph: ReactNode }> = 
     ),
   },
   game: {
-    gradient: "bg-gradient-to-br from-[#1d1410] to-[#100b08]",
+    gradient: "bg-gradient-to-br from-[#20261a] to-[#0f130a]",
     glyph: (
       <div className="relative" aria-hidden="true">
         <span className="block text-6xl leading-none text-[color:var(--foreground)] opacity-20">
@@ -116,7 +116,7 @@ const ART: Record<ProjectItem["art"], { gradient: string; glyph: ReactNode }> = 
     ),
   },
   data: {
-    gradient: "bg-gradient-to-br from-[#0f1c1a] to-[#090e0d]",
+    gradient: "bg-gradient-to-br from-[#0c2924] to-[#071412]",
     glyph: (
       <svg viewBox="0 0 96 64" className="h-24 w-36" aria-hidden="true">
         <g fill="var(--foreground)" opacity="0.2">
@@ -223,7 +223,7 @@ export default function ProjectsSection() {
           initial={reduce ? false : "hidden"}
           whileInView="visible"
           viewport={{ amount: 0.3, once: false }}
-          className="mb-12 text-3xl font-medium sm:text-4xl lg:text-5xl"
+          className="font-display mb-12 text-3xl font-medium sm:text-4xl lg:text-5xl"
         >
           {sectionTitles.projects}
         </motion.h2>

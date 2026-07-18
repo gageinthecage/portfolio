@@ -117,7 +117,7 @@ export default function Hero() {
 
         <motion.h1
           {...entrance(1)}
-          className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight"
+          className="font-display text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight"
         >
           {site.name}
         </motion.h1>
@@ -128,7 +128,7 @@ export default function Hero() {
         >
           <TypeWriter
             lines={site.taglines}
-            className="text-lg sm:text-xl lg:text-2xl font-light bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent"
+            className="text-lg sm:text-xl lg:text-2xl font-light bg-gradient-to-r from-white to-[#8fe8d2] bg-clip-text text-transparent"
           />
         </motion.div>
 
