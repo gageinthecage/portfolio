@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gage William Boyd — Portfolio
 
-## Getting Started
+Single-page portfolio (Next.js 16 + Tailwind v4 + framer-motion + Vanta waves),
+format modeled on ciangoon.dev, dark/classy aesthetic. Deployed on Vercel (soon).
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev    # http://localhost:3000
+npm run build  # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Edit content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**All text and data live in `src/content/site.ts`** — name, taglines, summary,
+links (GitHub/LinkedIn/email/phone), experience entries, projects, interests,
+section titles, loading captions. Components never hardcode content.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Swap the placeholder headshot by replacing `public/headshot-placeholder.svg`
+(and the `src` in `src/components/Hero.tsx`). Company logos live in `public/logos/`;
+set `logoLight: true` on an experience item whose logo needs a white box.
 
-## Learn More
+## Re-theme
 
-To learn more about Next.js, take a look at the following resources:
+All colors route through CSS variables at the top of `src/app/globals.css`
+(`--background`, `--accent`, glass surface/hairline tokens…). Fonts are wired in
+`src/app/layout.tsx` → `--font-sans` / `--font-mono`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app/page.tsx` — assembles: Preloader → Vanta background → Navbar → Hero →
+  Experience → Projects → Interests → Footer
+- `DESIGN.md` — the binding visual spec (format + interaction language)
+- Detail pages per project/job: planned, will be in-domain routes (`/work/...`, `/projects/...`)

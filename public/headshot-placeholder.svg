@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#23232a"/>
+      <stop offset="100%" stop-color="#101014"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <circle cx="200" cy="152" r="62" fill="none" stroke="#8b8b95" stroke-width="7" opacity="0.55"/>
+  <path d="M 88 330 Q 200 218 312 330" fill="none" stroke="#8b8b95" stroke-width="7" opacity="0.55" stroke-linecap="round"/>
+  <text x="200" y="376" text-anchor="middle" font-family="Georgia, serif" font-size="26" letter-spacing="10" fill="#6f6f78">GWB</text>
+</svg>
