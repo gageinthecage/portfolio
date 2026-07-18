@@ -105,11 +105,10 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-6">
         <motion.div {...entrance(0)}>
           <Image
-            src="/headshot-placeholder.svg"
+            src="/headshot.jpg"
             alt={site.name}
             width={176}
             height={176}
-            unoptimized
             priority
             className="w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover border border-[var(--hairline-strong)] ring-1 ring-offset-4 ring-offset-[var(--background)] ring-[var(--accent-soft)]"
           />

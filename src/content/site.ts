@@ -11,16 +11,16 @@ export const site = {
   taglines: [
     "Computer Science & Mathematics. Machine Learning Researcher. Problem Solver.",
   ],
-  // Short summary shown in the Home section (placeholder — Gage will rewrite)
+  // Short summary shown in the Home section
   summary:
     "I'm a Computer Science and Mathematics double major at Northern Arizona University, " +
     "passionate about machine learning, mathematical problem solving, and building software " +
     "that matters. Currently conducting ML research and always looking for the next hard problem.",
   links: {
-    github: "https://github.com/", // TODO: add username
-    linkedin: "https://www.linkedin.com/", // TODO: add profile
+    github: "https://github.com/gageinthecage",
+    linkedin: "https://www.linkedin.com/in/gage-boyd-9078063bb/",
     email: "gagewboyd@gmail.com",
-    phone: "+1 (000) 000-0000", // TODO: real number
+    phone: "602-469-2854",
   },
   // Random captions shown under the preloader percentage
   loadingMessages: [
@@ -59,17 +59,17 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    title: "Machine Learning Researcher",
-    company: "Northern Arizona University",
+    title: "Machine Learning Research Assistant",
+    company: "NAU UQLID Lab",
     logo: "/logos/nau.png",
     logoLight: true, // navy/gold logo — needs a light box to stay legible
     location: "Flagstaff, AZ",
-    period: "2024 — Present",
-    blurb: "Undergraduate machine learning research.",
+    period: "May 2026 — Present",
+    blurb: "Scientific machine learning & uncertainty quantification research.",
     details: [
-      "Conducted machine learning research under faculty mentorship.",
-      "Designed and trained models; analyzed results and iterated on approach.",
-      "Placeholder — Gage will write the real bullets.",
+      "Built PyTorch neural-network surrogates predicting natural frequencies of structural materials under uncertainty, fusing sparse high-fidelity finite-element data with low-fidelity simulations.",
+      "Trained a high-fidelity model to 97.4% accuracy in predicting bandgap locations, applying backpropagation, gradient descent, and uncertainty quantification.",
+      "Integrated physics-informed neural networks (PINNs) as an additional training layer, embedding governing physical equations to improve predictive accuracy on sparse data.",
     ],
   },
   {
@@ -77,13 +77,13 @@ export const experience: ExperienceItem[] = [
     company: "Achen-Gardner Construction",
     logo: "/logos/achen-gardner-color.png",
     logoLight: true, // blue-on-white brand mark
-    location: "Chandler, AZ",
-    period: "Summer 2024",
-    blurb: "Heavy civil construction project engineering.",
+    location: "Phoenix, AZ",
+    period: "Summer 2026",
+    blurb: "Heavy civil construction project engineering on a $16M public-works project.",
     details: [
-      "Supported project engineering on heavy civil construction projects.",
-      "Worked with plans, quantities, and field coordination.",
-      "Placeholder — Gage will write the real bullets.",
+      "Tracked quantities and drafted submittals, purchase orders, subcontracts, RFIs, and LOIs for a $16M public-works intersection project across multiple agencies and municipalities.",
+      "Cross-referenced vendor submittals against pre-approved materials lists, catching 10+ specification discrepancies before procurement.",
+      "Drafted Traffic Control plans in Bluebeam and AutoCAD; drafted Guaranteed Maximum Price (GMP) submittals for the City of Buckeye.",
     ],
   },
 ];
@@ -93,35 +93,47 @@ export type ProjectItem = {
   blurb: string; // one-liner always visible
   details: string; // revealed on hover
   tags: string[];
-  // Simple built-in graphic: a gradient + glyph keyed by `art`
+  // Card header graphic: either an image under /public…
+  image?: string;
+  // …or a simple built-in gradient + glyph keyed by `art`
   art: "ml" | "math" | "web" | "game" | "data";
+  badge?: string; // optional small status pill (e.g. "In development")
+  github?: string; // GitHub repo link
+  demo?: string; // live site link
   href?: string; // future in-domain detail page (unused for now)
 };
 
 export const projects: ProjectItem[] = [
   {
-    title: "Project One",
-    blurb: "Placeholder project — coolest part shown here.",
+    title: "Monte Carlo Options Pricer & Backtester",
+    blurb:
+      "Prices European calls via 10,000-path GBM simulation, validated against Black-Scholes.",
     details:
-      "A short description of what this project does, what it's built with, and what was hard about it. Gage will replace this.",
-    tags: ["Python", "PyTorch"],
+      "Estimates annualized realized volatility from AAPL log returns, benchmarks simulated prices against live market quotes, and visualizes the implied-volatility smile across strikes. Backtested a 21-month mean-reversion volatility strategy and documented a short-gamma drawdown during the April 2025 tariff shock.",
+    tags: ["Python", "NumPy", "pandas", "yfinance"],
+    image: "/projects/options-pricer.svg",
     art: "ml",
+    github: "https://github.com/gageinthecage/Monte-Carlo-Options-Pricer",
   },
   {
-    title: "Project Two",
-    blurb: "Placeholder project — coolest part shown here.",
+    title: "Retirement Monte Carlo Simulator",
+    blurb:
+      "Full-stack simulator: 2,000-path GBM engine with median timeline, success rate, and decile outcomes.",
     details:
-      "A short description of what this project does, what it's built with, and what was hard about it. Gage will replace this.",
-    tags: ["TypeScript", "Next.js"],
-    art: "web",
+      "React/Vite frontend on Vercel connected to a FastAPI backend on Render, serving simulation statistics through a REST API with full trajectory storage for interactive visualization.",
+    tags: ["React", "FastAPI", "Python", "NumPy"],
+    image: "/projects/retirement-sim.png",
+    art: "data",
+    demo: "https://retirement-sim-frontend.vercel.app/",
   },
   {
-    title: "Project Three",
-    blurb: "Placeholder project — coolest part shown here.",
+    title: "Coming Soon",
+    blurb: "The next project is in development.",
     details:
-      "A short description of what this project does, what it's built with, and what was hard about it. Gage will replace this.",
-    tags: ["C++", "Math"],
+      "Already on the resume — the build is underway. Check back shortly.",
+    tags: ["TBD"],
     art: "math",
+    badge: "In development",
   },
 ];
 
