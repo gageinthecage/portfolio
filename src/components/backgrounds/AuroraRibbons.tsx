@@ -101,8 +101,63 @@ const SEGMENTS = 64;
 /** Internal render scale relative to CSS pixels — low-res + blur = cheap softness. */
 const RENDER_SCALE = 0.5;
 
+/** Faint drifting mint specks that give the field depth. */
+const PARTICLE_COUNT = 60;
+
+interface Particle {
+  /** Base position as viewport fractions. */
+  x: number;
+  y: number;
+  /** Drift velocity in fractions/second (very slow). */
+  vx: number;
+  vy: number;
+  /** Radius as a fraction of the smaller viewport dimension. */
+  r: number;
+  /** Resting alpha and twinkle parameters. */
+  alpha: number;
+  twSpeed: number;
+  twPhase: number;
+}
+
+/** Big, very dim radial glows that slowly wander for atmosphere. */
+interface Glow {
+  x: number;
+  y: number;
+  /** Radius as a fraction of viewport width. */
+  r: number;
+  alpha: number;
+  driftX: number;
+  driftY: number;
+  phase: number;
+  color: string;
+}
+
+const GLOWS: readonly Glow[] = [
+  { x: 0.22, y: 0.28, r: 0.42, alpha: 0.05, driftX: 0.05, driftY: 0.04, phase: 0.0, color: "23, 224, 184" },
+  { x: 0.78, y: 0.44, r: 0.5, alpha: 0.04, driftX: 0.06, driftY: 0.05, phase: 2.2, color: "13, 95, 74" },
+  { x: 0.5, y: 0.82, r: 0.46, alpha: 0.045, driftX: 0.04, driftY: 0.03, phase: 4.1, color: "23, 224, 184" },
+];
+
 function clamp01(v: number): number {
   return Math.min(1, Math.max(0, v));
+}
+
+/** Deterministic-ish particle field (generated once, client-side). */
+function makeParticles(): Particle[] {
+  const out: Particle[] = [];
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    out.push({
+      x: Math.random(),
+      y: Math.random(),
+      vx: (Math.random() - 0.5) * 0.012,
+      vy: -0.006 - Math.random() * 0.012, // gentle upward drift
+      r: 0.0009 + Math.random() * 0.0022,
+      alpha: 0.12 + Math.random() * 0.33,
+      twSpeed: 0.5 + Math.random() * 1.3,
+      twPhase: Math.random() * TWO_PI,
+    });
+  }
+  return out;
 }
 
 export default function AuroraRibbons() {
@@ -206,9 +261,51 @@ export default function AuroraRibbons() {
       ctx.fill();
     };
 
+    const particles = makeParticles();
+
+    const drawGlows = (t: number): void => {
+      if (supportsCtxFilter) ctx.filter = "none";
+      for (const g of GLOWS) {
+        const cx = (g.x + g.driftX * Math.sin(t * 0.05 + g.phase)) * width;
+        const cy = (g.y + g.driftY * Math.cos(t * 0.045 + g.phase)) * height;
+        const rad = g.r * width;
+        const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad);
+        grad.addColorStop(0, `rgba(${g.color}, ${g.alpha})`);
+        grad.addColorStop(1, `rgba(${g.color}, 0)`);
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, rad, 0, TWO_PI);
+        ctx.fill();
+      }
+    };
+
+    const drawParticles = (t: number): void => {
+      if (supportsCtxFilter) ctx.filter = "none";
+      const minDim = Math.min(width, height);
+      for (const p of particles) {
+        // Position drifts slowly and wraps around the viewport.
+        const px = (((p.x + p.vx * t) % 1) + 1) % 1;
+        const py = (((p.y + p.vy * t) % 1) + 1) % 1;
+        const cx = px * width;
+        const cy = py * height;
+        const rad = Math.max(0.6, p.r * minDim);
+        const a = p.alpha * (0.45 + 0.55 * Math.sin(t * p.twSpeed + p.twPhase));
+        if (a <= 0.01) continue;
+        const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad * 3);
+        grad.addColorStop(0, `rgba(${TEAL_MINT}, ${a})`);
+        grad.addColorStop(1, `rgba(${TEAL_MINT}, 0)`);
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, rad * 3, 0, TWO_PI);
+        ctx.fill();
+      }
+    };
+
     const draw = (t: number): void => {
       ctx.clearRect(0, 0, width, height);
       ctx.globalCompositeOperation = "lighter";
+      // Soft atmospheric glows sit deepest…
+      drawGlows(t);
       const bodyBlur = Math.min(40, Math.max(4, Math.round(height * 0.03)));
       const coreBlur = Math.min(20, Math.max(2, Math.round(height * 0.012)));
       for (const spec of RIBBONS) {
@@ -217,6 +314,8 @@ export default function AuroraRibbons() {
         // …plus a narrower core where the silk catches the light.
         drawRibbon(spec, t, 0.38, spec.alpha * 1.3, coreBlur);
       }
+      // …and fine mint specks drift on top.
+      drawParticles(t);
       ctx.globalCompositeOperation = "source-over";
       if (supportsCtxFilter) ctx.filter = "none";
     };
