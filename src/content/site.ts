@@ -150,6 +150,7 @@ export const projects: ProjectItem[] = [
     details:
       "372 problems and solutions transcribed verbatim from Kedlaya's Putnam Archive and rendered with KaTeX. Browse by mathematical topic, competition year, or full-text search; every problem gets its own page with a hidden-by-default solution. A static single-page app — vanilla JS, no backend — with a documented JSON schema and import pipeline for growing the corpus.",
     tags: ["JavaScript", "KaTeX", "Python", "JSON"],
+    image: "/projects/math-lab.svg",
     art: "math",
     github: "https://github.com/gageinthecage/math-lab",
     demo: "https://math-lab-psi.vercel.app/",
@@ -164,8 +165,10 @@ export type InterestQuote = {
 export type InterestBook = {
   title: string;
   author: string;
-  // Spine tint (hex) for the little book graphic.
+  // Spine tint (hex) — used for the styled fallback if no cover image loads.
   tint: string;
+  // ISBN used to fetch the real cover from the Open Library covers API.
+  isbn: string;
 };
 
 export type InterestItem = {
@@ -228,11 +231,11 @@ export const interests: InterestItem[] = [
       author: "Cormac McCarthy, Blood Meridian",
     },
     books: [
-      { title: "Blood Meridian", author: "Cormac McCarthy", tint: "#7f1d1d" },
-      { title: "A Song of Ice and Fire", author: "George R. R. Martin", tint: "#1e3a5f" },
-      { title: "The Lord of the Rings", author: "J. R. R. Tolkien", tint: "#3f2d1a" },
-      { title: "The Count of Monte Cristo", author: "Alexandre Dumas", tint: "#4a2e6b" },
-      { title: "Dune", author: "Frank Herbert", tint: "#8a5a1c" },
+      { title: "Blood Meridian", author: "Cormac McCarthy", tint: "#7f1d1d", isbn: "9780679728757" },
+      { title: "A Game of Thrones", author: "George R. R. Martin", tint: "#1e3a5f", isbn: "9780553588484" },
+      { title: "The Lord of the Rings", author: "J. R. R. Tolkien", tint: "#3f2d1a", isbn: "9780544003415" },
+      { title: "The Count of Monte Cristo", author: "Alexandre Dumas", tint: "#4a2e6b", isbn: "9780140449266" },
+      { title: "Dune", author: "Frank Herbert", tint: "#8a5a1c", isbn: "9780441172719" },
     ],
   },
 ];

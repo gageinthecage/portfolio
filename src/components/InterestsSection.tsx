@@ -185,24 +185,45 @@ function BookGraphic({
   title,
   author,
   tint,
+  isbn,
 }: {
   title: string;
   author: string;
   tint: string;
+  isbn: string;
 }) {
+  // Real cover art, loaded by reference from the Open Library covers API
+  // (default=false → 404s when no cover exists, triggering the styled fallback).
+  const [failed, setFailed] = useState(false);
+  const cover = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg?default=false`;
+
   return (
     <div className="flex w-full flex-col items-center gap-1.5">
       <div
-        className="relative flex h-24 w-16 shrink-0 items-center justify-center overflow-hidden rounded-md border border-[var(--hairline-strong)] px-1.5 shadow-[0_6px_18px_rgba(0,0,0,0.5)]"
-        style={{
-          background: `linear-gradient(150deg, ${tint} 0%, rgba(3,13,10,0.92) 140%)`,
-        }}
+        className="relative flex h-24 w-16 shrink-0 items-center justify-center overflow-hidden rounded-md border border-[var(--hairline-strong)] shadow-[0_6px_18px_rgba(0,0,0,0.5)]"
+        style={
+          failed
+            ? { background: `linear-gradient(150deg, ${tint} 0%, rgba(3,13,10,0.92) 140%)` }
+            : undefined
+        }
       >
-        {/* spine highlight */}
-        <span className="absolute left-1 top-1 bottom-1 w-[3px] rounded-full bg-white/25" />
-        <span className="text-center text-[9px] font-semibold leading-tight text-white/95">
-          {title}
-        </span>
+        {failed ? (
+          <>
+            <span className="absolute left-1 top-1 bottom-1 w-[3px] rounded-full bg-white/25" />
+            <span className="px-1.5 text-center text-[9px] font-semibold leading-tight text-white/95">
+              {title}
+            </span>
+          </>
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={cover}
+            alt={`${title} cover`}
+            loading="lazy"
+            onError={() => setFailed(true)}
+            className="h-full w-full object-cover"
+          />
+        )}
       </div>
       <span className="max-w-[5rem] text-center text-[10px] leading-tight text-[color:var(--muted)]">
         {author}
@@ -298,7 +319,13 @@ function InterestModal({
               </p>
               <div className="grid grid-cols-5 gap-2 sm:gap-3">
                 {item.books.map((b) => (
-                  <BookGraphic key={b.title} title={b.title} author={b.author} tint={b.tint} />
+                  <BookGraphic
+                    key={b.title}
+                    title={b.title}
+                    author={b.author}
+                    tint={b.tint}
+                    isbn={b.isbn}
+                  />
                 ))}
               </div>
             </div>

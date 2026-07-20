@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 180" width="480" height="180" role="img" aria-label="Mathematics">
+  <defs>
+    <linearGradient id="mlbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b2b23"/>
+      <stop offset="1" stop-color="#04120e"/>
+    </linearGradient>
+    <radialGradient id="mlglow" cx="0.72" cy="0.3" r="0.7">
+      <stop offset="0" stop-color="#35e2c2" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#35e2c2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="480" height="180" fill="url(#mlbg)"/>
+  <rect width="480" height="180" fill="url(#mlglow)"/>
+
+  <!-- faint graph grid -->
+  <g stroke="#8fe8d2" stroke-opacity="0.06" stroke-width="1">
+    <path d="M0 30H480M0 60H480M0 90H480M0 120H480M0 150H480"/>
+    <path d="M40 0V180M80 0V180M120 0V180M160 0V180M200 0V180M240 0V180M280 0V180M320 0V180M360 0V180M400 0V180M440 0V180"/>
+  </g>
+
+  <!-- plotted sine curve with axes -->
+  <g opacity="0.5">
+    <path d="M24 150 H150 M32 172 V44" stroke="#c9d9d3" stroke-opacity="0.35" stroke-width="1.2" fill="none"/>
+    <path d="M32 108 C 52 66, 72 66, 92 108 S 132 150, 152 108" stroke="#35e2c2" stroke-opacity="0.85" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- unit circle with radius + angle -->
+  <g transform="translate(408 116)" opacity="0.55">
+    <circle r="30" fill="none" stroke="#c9d9d3" stroke-opacity="0.4" stroke-width="1.2"/>
+    <path d="M0 0 L30 0 M0 0 L21 -21" stroke="#35e2c2" stroke-opacity="0.8" stroke-width="1.4"/>
+    <path d="M14 0 A14 14 0 0 0 10 -10" fill="none" stroke="#35e2c2" stroke-opacity="0.8" stroke-width="1.1"/>
+    <text x="16" y="-4" font-family="Georgia, serif" font-style="italic" font-size="9" fill="#8fe8d2">θ</text>
+  </g>
+
+  <!-- focal contour integral (matches the Math Lab logo) -->
+  <text x="196" y="126" font-family="Georgia, serif" font-size="86" fill="#f2f7f5" fill-opacity="0.16">&#8750;</text>
+
+  <!-- scattered famous identities -->
+  <g font-family="Georgia, serif" fill="#f2f7f5">
+    <text x="250" y="44" font-size="19" fill-opacity="0.82" font-style="italic">e<tspan font-size="12" dy="-8">i&#960;</tspan><tspan dy="8"> + 1 = 0</tspan></text>
+    <text x="30" y="34" font-size="15" fill-opacity="0.5">&#8721;<tspan font-size="9" dy="4">n=1</tspan><tspan dy="-4"> </tspan>1/n&#178; = &#960;&#178;/6</text>
+    <text x="286" y="150" font-size="14" fill-opacity="0.55">&#8747;<tspan font-size="9">0</tspan><tspan font-size="9" dy="-6">&#8734;</tspan><tspan dy="6"> e</tspan><tspan font-size="9" dy="-6">&#8722;x&#178;</tspan><tspan dy="6"> dx = &#8730;&#960;/2</tspan></text>
+    <text x="330" y="70" font-size="14" fill-opacity="0.5" font-style="italic">&#966; = (1+&#8730;5)/2</text>
+    <text x="176" y="52" font-size="12" fill-opacity="0.45" font-style="italic">a&#178; + b&#178; = c&#178;</text>
+    <text x="150" y="164" font-size="12" fill-opacity="0.4" font-style="italic">&#8711;&#183;E = &#961;/&#949;&#8320;</text>
+  </g>
+
+  <!-- accent nodes -->
+  <circle cx="152" cy="108" r="3" fill="#35e2c2" fill-opacity="0.85"/>
+  <circle cx="438" cy="116" r="2.4" fill="#35e2c2" fill-opacity="0.8"/>
+</svg>
