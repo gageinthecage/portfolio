@@ -53,12 +53,14 @@ export const navItems = [
   { name: "Home", href: "#home" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
+  { name: "Competitions", href: "#competitions" },
   { name: "Interests", href: "#interests" },
 ];
 
 export const sectionTitles = {
   experience: "Experience",
   projects: "Projects",
+  competitions: "Competitions",
   interests: "Interests",
 };
 
@@ -122,6 +124,18 @@ export type ProjectItem = {
 
 export const projects: ProjectItem[] = [
   {
+    title: "CivilFLOW — AI Document Engine",
+    blurb:
+      "Retrieval-augmented drafting for construction POs, subcontracts, and RFIs — every section cited back to its source.",
+    details:
+      "A hybrid RAG pipeline (BM25 + embeddings fused with reciprocal-rank fusion) retrieves a contractor's own clause library and spec corpus; Claude composes drafts through JSON-schema-constrained outputs, with prompt-injection screening and a citation-grounding audit that strips hallucinated references. Anything the engine assumes becomes a human-review flag. Ships with a zero-setup deterministic demo mode and a golden-set eval harness scoring hit@5, MRR, citation coverage, and schema validity.",
+    tags: ["Next.js", "TypeScript", "Claude API", "RAG"],
+    image: "/projects/civilflow.svg",
+    art: "web",
+    github: "https://github.com/gageinthecage/CivilFLOW",
+    demo: "https://civil-flow.vercel.app/",
+  },
+  {
     title: "Monte Carlo Options Pricer & Backtester",
     blurb:
       "Prices European calls via 10,000-path GBM simulation, validated against Black-Scholes.",
@@ -154,6 +168,34 @@ export const projects: ProjectItem[] = [
     art: "math",
     github: "https://github.com/gageinthecage/math-lab",
     demo: "https://math-lab-psi.vercel.app/",
+  },
+];
+
+export type CompetitionItem = {
+  name: string;
+  host: string;
+  year: string;
+  // Headline standing, split for typographic emphasis: "Top 220" + "of 4,012".
+  rank: string;
+  field: string;
+  // Percentile pill, e.g. "Top 5.5%".
+  percentile: string;
+  // 0–1 position along the field bar (1 = first place end).
+  fieldPosition: number;
+  blurb: string;
+};
+
+export const competitions: CompetitionItem[] = [
+  {
+    name: "Jump Trading Probability Cup",
+    host: "Jump Trading",
+    year: "2026",
+    rank: "Top 220",
+    field: "of 4,012 competitors",
+    percentile: "Top 5.5%",
+    fieldPosition: 0.945,
+    blurb:
+      "An open probability-estimation competition hosted by Jump Trading, ranked on forecast accuracy across the season. My approach centered on de-vigging market odds and extremizing consensus estimates rather than forecasting from scratch.",
   },
 ];
 

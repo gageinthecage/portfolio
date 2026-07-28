@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import CompetitionsSection from "@/components/CompetitionsSection";
 import InterestsSection from "@/components/InterestsSection";
 import Footer from "@/components/Footer";
 
@@ -32,6 +33,7 @@ export default function Home() {
                 <Hero />
                 <ExperienceSection />
                 <ProjectsSection />
+                <CompetitionsSection />
                 <InterestsSection />
               </main>
               <Footer />

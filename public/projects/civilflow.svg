@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 180" width="480" height="180" role="img" aria-label="CivilFLOW document engine">
+  <defs>
+    <linearGradient id="cfbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a2330"/>
+      <stop offset="1" stop-color="#050f14"/>
+    </linearGradient>
+    <radialGradient id="cfglow" cx="0.7" cy="0.32" r="0.7">
+      <stop offset="0" stop-color="#35e2c2" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#35e2c2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="480" height="180" fill="url(#cfbg)"/>
+  <rect width="480" height="180" fill="url(#cfglow)"/>
+
+  <!-- faint blueprint grid -->
+  <g stroke="#8fd4e8" stroke-opacity="0.06" stroke-width="1">
+    <path d="M0 30H480M0 60H480M0 90H480M0 120H480M0 150H480"/>
+    <path d="M40 0V180M80 0V180M120 0V180M160 0V180M200 0V180M240 0V180M280 0V180M320 0V180M360 0V180M400 0V180M440 0V180"/>
+  </g>
+
+  <!-- retrieval pipeline: corpus chunks → fusion node → document -->
+  <g opacity="0.75">
+    <g fill="none" stroke="#c9d9d3" stroke-opacity="0.35" stroke-width="1.2">
+      <rect x="36" y="36" width="52" height="26" rx="4"/>
+      <rect x="36" y="76" width="52" height="26" rx="4"/>
+      <rect x="36" y="116" width="52" height="26" rx="4"/>
+    </g>
+    <g stroke="#c9d9d3" stroke-opacity="0.3" stroke-width="1.4">
+      <path d="M44 45h30M44 51h22"/>
+      <path d="M44 85h30M44 91h22"/>
+      <path d="M44 125h30M44 131h22"/>
+    </g>
+    <g fill="none" stroke="#35e2c2" stroke-opacity="0.55" stroke-width="1.4">
+      <path d="M88 49 C 116 49, 116 86, 142 88"/>
+      <path d="M88 89 H142"/>
+      <path d="M88 129 C 116 129, 116 92, 142 90"/>
+    </g>
+    <circle cx="150" cy="89" r="7" fill="#35e2c2" fill-opacity="0.75"/>
+    <path d="M157 89 H196" stroke="#35e2c2" stroke-opacity="0.7" stroke-width="1.6"/>
+    <path d="M191 84 L199 89 L191 94" fill="none" stroke="#35e2c2" stroke-opacity="0.7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- the drafted document -->
+  <g transform="translate(212 22)">
+    <rect width="150" height="136" rx="6" fill="#f2f0e7" fill-opacity="0.92"/>
+    <rect x="0.6" y="0.6" width="148.8" height="134.8" rx="5.4" fill="none" stroke="#0a2330" stroke-opacity="0.25"/>
+    <!-- header -->
+    <rect x="14" y="14" width="72" height="7" rx="2" fill="#22303a" fill-opacity="0.85"/>
+    <rect x="112" y="14" width="24" height="7" rx="2" fill="#e8722a" fill-opacity="0.9"/>
+    <path d="M14 30 H136" stroke="#22303a" stroke-opacity="0.5" stroke-width="1.6"/>
+    <!-- body lines with citation chips -->
+    <g fill="#22303a" fill-opacity="0.4">
+      <rect x="14" y="40" width="122" height="4.5" rx="2"/>
+      <rect x="14" y="50" width="104" height="4.5" rx="2"/>
+      <rect x="14" y="70" width="122" height="4.5" rx="2"/>
+      <rect x="14" y="80" width="96" height="4.5" rx="2"/>
+      <rect x="14" y="100" width="122" height="4.5" rx="2"/>
+      <rect x="14" y="110" width="88" height="4.5" rx="2"/>
+    </g>
+    <g font-family="ui-monospace, monospace" font-size="7" font-weight="600">
+      <rect x="122" y="47" width="14" height="9" rx="2" fill="none" stroke="#e8722a" stroke-opacity="0.8"/>
+      <text x="125" y="54" fill="#c05a17">S1</text>
+      <rect x="114" y="77" width="14" height="9" rx="2" fill="none" stroke="#e8722a" stroke-opacity="0.8"/>
+      <text x="117" y="84" fill="#c05a17">S3</text>
+      <rect x="106" y="107" width="14" height="9" rx="2" fill="none" stroke="#e8722a" stroke-opacity="0.8"/>
+      <text x="109" y="114" fill="#c05a17">S4</text>
+    </g>
+  </g>
+
+  <!-- telemetry ticks, right edge -->
+  <g transform="translate(396 52)" opacity="0.6">
+    <g fill="#c9d9d3" fill-opacity="0.25">
+      <rect x="0" y="44" width="9" height="32" rx="2"/>
+      <rect x="14" y="30" width="9" height="46" rx="2"/>
+      <rect x="28" y="52" width="9" height="24" rx="2"/>
+    </g>
+    <rect x="42" y="16" width="9" height="60" rx="2" fill="#35e2c2" fill-opacity="0.7"/>
+    <path d="M0 8 H51" stroke="#8fd4e8" stroke-opacity="0.3" stroke-width="1"/>
+  </g>
+</svg>
