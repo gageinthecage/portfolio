@@ -3,13 +3,6 @@
 Single-page portfolio (Next.js 16 + Tailwind v4 + framer-motion + Vanta waves),
 format modeled on ciangoon.dev, dark/classy aesthetic. Deployed on Vercel (soon).
 
-## Run it
-
-```bash
-npm run dev    # http://localhost:3000
-npm run build  # production build
-```
-
 ## Edit content
 
 **All text and data live in `src/content/site.ts`** — name, taglines, summary,
