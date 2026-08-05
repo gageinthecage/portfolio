@@ -28,7 +28,7 @@ export const site = {
     "specializing in machine learning and data science. Currently researching in the UQLID Lab, " +
     "focused on developing physics-informed neural networks (PINNs) to predict bandgap location and " +
     "dimensions in differently structured photonic materials. Actively seeking Summer 2027 internships " +
-    "in software engineering, embedded systems, data science, quantitative trading, and machine learning " +
+    "in software engineering, embedded systems, data science, and machine learning " +
     "engineering. Passionate about solving difficult problems and seeking a career that enables me to be " +
     "a lifelong learner.",
   links: {
