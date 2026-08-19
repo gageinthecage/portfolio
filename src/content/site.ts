@@ -84,11 +84,14 @@ export const experience: ExperienceItem[] = [
     logoLight: true, // navy/gold logo — needs a light box to stay legible
     location: "Flagstaff, AZ",
     period: "May 2026 — Present",
-    blurb: "Scientific machine learning & uncertainty quantification research.",
+    blurb:
+      "Machine-learning surrogates & uncertainty quantification for phononic-composite bandgap prediction.",
     details: [
-      "Built PyTorch neural-network surrogates predicting natural frequencies of structural materials under uncertainty, fusing sparse high-fidelity finite-element data with low-fidelity simulations.",
-      "Trained a high-fidelity model to 97.4% accuracy in predicting bandgap locations, applying backpropagation, gradient descent, and uncertainty quantification.",
-      "Integrated physics-informed neural networks (PINNs) as an additional training layer, embedding governing physical equations to improve predictive accuracy on sparse data.",
+      "Benchmarked nine model families — MLP ensembles, Gaussian processes, gradient-boosted trees, random forests, k-NN, mixture-of-experts, and stacked ensembles — against the lab's baseline neural network for predicting bandgap midpoint and width from composite design parameters, all under a shared fixed 5-fold cross-validation protocol with a 1,000-sample held-out test set.",
+      "Cut held-out bandgap-midpoint RMSE 11.8% below the baseline network with a 5-seed MLP ensemble (median absolute error down 25%), and matched the baseline's near-floor width accuracy (R² 0.97) with a ridge-stacked ensemble blending MLP and Gaussian-process predictions.",
+      "Diagnosed the dominant error mode as branch-switching rather than surface roughness: bandgap midpoints lie on ~5 discrete dispersion branches, and the ~4% of samples routed to the wrong branch dominate RMSE — establishing a ~96% routing-accuracy ceiling that mixture-of-experts architectures cannot beat from the design parameters alone.",
+      "Quantified predictive uncertainty with Matérn-kernel Gaussian processes: empirical ±2σ coverage of 0.90 against the nominal 0.95 showed raw GP variances are overconfident, motivating conformal calibration for the lab's UQ pipeline.",
+      "Designed controlled follow-up experiments that falsified the hypothesis that predicted bandgap width could repair branch routing — width's discriminative signal collapses exactly at branch crossovers — redirecting effort toward exporting intermediate dispersion features from the MATLAB data-generation pipeline.",
     ],
   },
   {
