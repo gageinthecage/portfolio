@@ -110,15 +110,26 @@ export const experience: ExperienceItem[] = [
   },
 ];
 
+export type ProjectVideo = {
+  src: string; // MP4 under /public
+  poster: string; // still frame shown before playback
+  // Pixel size of the video — keeps the player's shape before it loads.
+  width: number;
+  height: number;
+  caption: string; // one line under the player
+};
+
 export type ProjectItem = {
   title: string;
   blurb: string; // one-liner always visible
   details: string; // revealed on hover
   tags: string[];
-  // Card header graphic: either an image under /public…
+  // Card header: a demo video (previews on hover, click opens a player)…
+  video?: ProjectVideo;
+  // …or an image under /public…
   image?: string;
   // …or a simple built-in gradient + glyph keyed by `art`
-  art: "ml" | "math" | "web" | "game" | "data";
+  art: "ml" | "math" | "web" | "game" | "data" | "hardware";
   badge?: string; // optional small status pill (e.g. "In development")
   github?: string; // GitHub repo link
   demo?: string; // live site link
@@ -137,6 +148,23 @@ export const projects: ProjectItem[] = [
     art: "web",
     github: "https://github.com/gageinthecage/CivilFLOW",
     demo: "https://civil-flow.vercel.app/",
+  },
+  {
+    title: "Arduino Ultrasonic Radar",
+    blurb:
+      "An Arduino sweeps a servo-mounted ultrasonic sensor through 150°, streaming each reading over serial to a live radar display.",
+    details:
+      "Built from the How To Mechatronics Arduino radar tutorial (the demo video shows that original build), then analyzed and rewritten. The firmware rewrite adds a 30 ms pulseIn timeout, so a missed echo reads 0 instead of a phantom ~646 cm and a dead sensor can't stall the sweep; swaps software floating point for integer echo math (µs ÷ 58) on the FPU-less ATmega328P, shrinking flash 15% (4,422 → 3,762 bytes); merges two sweep loops into one bounce loop that stops double-sampling 165°; and ends each serial reading with a newline.",
+    tags: ["C++", "Arduino", "Embedded", "Processing"],
+    art: "hardware",
+    video: {
+      src: "/projects/radar-demo.mp4",
+      poster: "/projects/radar-demo-poster.jpg",
+      width: 1080,
+      height: 1152,
+      caption:
+        "The original build running: the HC-SR04 sweeps on its servo while the Uno streams readings over USB. Red on the display marks a detected object.",
+    },
   },
   {
     title: "Monte Carlo Options Pricer & Backtester",
